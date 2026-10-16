@@ -4,275 +4,213 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#061710">
-<title>Saqib | Future Doctor</title>
+<title>For Saqib | A Special Surprise</title>
 
 <style>
 *{box-sizing:border-box}
+:root{--gold:#f6d889;--white:#fff7e8}
 body{
- margin:0;min-height:100vh;color:#fff5d8;text-align:center;
- font-family:Georgia,serif;overflow-x:hidden;
- background:radial-gradient(ellipse at top,#174b35,#071b13 55%,#020906);
+ margin:0;background:#05060d;color:var(--white);
+ font-family:Georgia,"Times New Roman",serif;
+ overflow-x:hidden;text-align:center
 }
-button,input{font:inherit}
-button{cursor:pointer}
-.gold{color:#ffd778;text-shadow:0 0 18px #ffd77855}
-header{display:flex;justify-content:space-between;align-items:center;padding:16px;gap:8px}
-.brand{font-size:11px;letter-spacing:2px;color:#ffd778;text-align:left}
-.music{border:1px solid #ffd77888;border-radius:30px;padding:10px;background:#ffffff0b;color:white}
-main{width:min(92%,650px);margin:auto;padding:15px 0 50px}
-.screen{display:none;animation:appear .8s ease}
-.screen.active{display:block}
-@keyframes appear{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-.eyebrow{font-size:11px;letter-spacing:4px;color:#ffd778}
-h1{font-size:clamp(34px,8vw,62px);line-height:1.1}
-h2{font-size:clamp(25px,6vw,40px)}
-p{line-height:1.8}
-.btn{border:1px solid #ffe4a0;border-radius:40px;padding:14px 22px;margin:7px;background:linear-gradient(135deg,#fff0b5,#d5a844);color:#172016;font-weight:bold}
-.secondary{background:#ffffff0c;color:#fff5d8;border-color:#ffffff55}
-.card{border:1px solid #e8c36d66;border-radius:22px;padding:25px;background:#ffffff09;box-shadow:0 15px 50px #0005}
-.stage{height:155px;position:relative;overflow:hidden;display:grid;place-items:center;background:radial-gradient(ellipse,#276a48,#071b13);border:1px solid #ffd77866;border-radius:12px;margin:25px 0}
-.symbol{font-size:70px;animation:pulse 2s infinite}
-.curtain{position:absolute;top:0;bottom:0;width:50%;background:repeating-linear-gradient(90deg,#4b101a 0 10px,#852330 11px 23px,#350810 24px 32px);transition:transform 1.5s ease}
-.left{left:0;border-right:2px solid #ffd778}
-.right{right:0;border-left:2px solid #ffd778}
-.stage.open .left{transform:translateX(-102%)}
-.stage.open .right{transform:translateX(102%)}
-@keyframes pulse{50%{transform:scale(1.1);filter:drop-shadow(0 0 16px #ffd778)}}
-.lock,.letter-icon{font-size:55px;animation:pulse 2s infinite}
-input{display:block;width:100%;max-width:300px;margin:18px auto;padding:14px;border:1px solid #ffd77888;border-radius:12px;background:#03130d;color:white;text-align:center;letter-spacing:3px}
-.message{color:#ffd778;min-height:25px;font-size:14px}
-.paper{background:linear-gradient(135deg,#fff6db,#f0d9a1);color:#253629;text-align:left;line-height:1.9;padding:23px;border-radius:5px;margin:20px 0;white-space:pre-wrap;overflow-wrap:anywhere}
-.paper h3{text-align:center}
-.aiims{width:150px;height:150px;max-width:40vw;max-height:40vw;border:2px solid #ffd778;border-radius:50%;display:grid;place-items:center;margin:25px auto;font-size:65px;background:radial-gradient(circle,#215d3d,#03150c);animation:glow 2s infinite}
-@keyframes glow{50%{box-shadow:0 0 50px #ffd778aa;transform:scale(1.04)}}
-.doctor{font-size:90px;animation:pulse 3s infinite}
-.signature{color:#ffd778;font-size:22px;margin:25px 0}
-#particles{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:5}
-.particle{position:absolute;bottom:-30px;color:#ffd778;animation:float 8s linear forwards}
-@keyframes float{0%{transform:translateY(0);opacity:0}15%{opacity:.8}100%{transform:translateY(-110vh) rotate(300deg);opacity:0}}
-footer{font-size:12px;color:#a7b6a8;padding:20px}
+#stars{
+ position:fixed;inset:0;width:100%;height:100%;
+ z-index:0;pointer-events:none
+}
+.page{
+ position:relative;z-index:1;min-height:100vh;
+ display:flex;align-items:center;justify-content:center;
+ padding:28px 17px
+}
+.panel{
+ width:100%;max-width:700px;padding:30px 22px;
+ border:1px solid #b99b554d;border-radius:22px;
+ background:linear-gradient(145deg,#151522ed,#090a12f5);
+ box-shadow:0 0 55px #d4ad3910
+}
+.kicker{
+ color:var(--gold);letter-spacing:4px;font:11px Arial,sans-serif;
+ text-transform:uppercase
+}
+h1{
+ color:var(--gold);font-size:clamp(36px,9vw,66px);
+ line-height:1.05;margin:20px 0;text-shadow:0 0 30px #e4bc5d45
+}
+h2{color:var(--gold);font-size:clamp(27px,7vw,42px)}
+p{line-height:1.9;font-size:17px}
+.small{font:13px/1.8 Arial,sans-serif;color:#c5c1cf}
+button,input{
+ font-size:16px;border-radius:12px;padding:14px 17px
+}
+button{
+ border:0;background:linear-gradient(100deg,#f1cf79,#fff0b6);
+ color:#17110a;font-weight:bold;cursor:pointer;margin:7px
+}
+input{
+ width:100%;max-width:280px;background:#10111b;color:white;
+ border:1px solid #b99b55;text-align:center;outline:none
+}
 .hidden{display:none!important}
+.gold{color:var(--gold)}
+.rule{width:90px;height:1px;background:var(--gold);margin:24px auto}
+.letter{text-align:left;white-space:normal}
+.letter p{font-size:17px}
+.big-number{font-size:clamp(62px,16vw,105px);color:var(--gold);margin:5px}
+.pulse{animation:pulse 2.5s infinite}
+@keyframes pulse{50%{text-shadow:0 0 35px #f6d889;transform:scale(1.025)}}
+.reveal{animation:appear 1.4s both}
+@keyframes appear{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+video{width:100%;max-height:65vh;background:#000;border-radius:15px;margin-top:15px}
+footer{font:11px Arial,sans-serif;color:#888;margin-top:26px}
+@media(min-width:650px){.panel{padding:44px 42px}}
 </style>
 </head>
+
 <body>
+<canvas id="stars"></canvas>
 
-<div id="particles"></div>
-<header>
- <div class="brand">A SPECIAL SURPRISE<br>FOR SAQIB ✦</div>
- <button class="music" id="musicBtn">♫ Music: Off</button>
-</header>
-
-<main>
-<section class="screen active" id="s1">
- <p class="eyebrow">A DREAM WORTH FIGHTING FOR</p>
- <h1>Something Special<br>For <span class="gold">Saqib</span></h1>
- <p>A little surprise for a friend with a big dream.</p>
- <div class="stage" id="stage">
-  <div class="symbol">🩺</div>
-  <div class="curtain left"></div><div class="curtain right"></div>
- </div>
- <button class="btn" id="openBtn">✨ Open Your Surprise</button>
-</section>
-
-<section class="screen" id="s2">
- <div class="card">
-  <div class="lock">🔐</div>
-  <p class="eyebrow">TOP SECRET</p>
-  <h2>A Little Secret</h2>
-  <p>Enter the secret code to unlock your message.</p>
-  <form id="passForm">
-   <input id="passcode" type="password" placeholder="Secret code" autocomplete="off" required>
-   <button class="btn">Unlock My Surprise 🔓</button>
-  </form>
-  <p class="message" id="passMessage"></p>
-  <small>Hint: Your dream medical institute</small>
+<section class="page" id="opening">
+ <div class="panel reveal">
+  <div class="kicker">A little surprise • Made with heart</div>
+  <h1 class="pulse">SAQIB</h1>
+  <div class="rule"></div>
+  <p>Har kisi ka ek sapna hota hai.<br>
+  Lekin kuch log apne sapne ko<br>
+  <span class="gold">apni zindagi ka mission</span> bana lete hain.</p>
+  <p class="small">Aaj ki ye chhoti si kahani ek aise hi insaan ke naam…</p>
+  <button onclick="showLock()">OPEN YOUR SURPRISE ✨</button>
+  <footer>ONE DREAM. ONE JOURNEY. COUNTLESS POSSIBILITIES.</footer>
  </div>
 </section>
 
-<section class="screen" id="s3">
- <div class="card">
-  <div class="letter-icon">💌</div>
-  <h2 class="gold">A Letter For You</h2>
-  <div class="paper">
-   <h3>Dear Saqib, Future Doctor! 🩺</h3>
-   <div id="letterText"></div>
+<section class="page hidden" id="lock">
+ <div class="panel reveal">
+  <div class="kicker">A secret just for you</div>
+  <h2>🔐 One Little Secret</h2>
+  <p>Is surprise ko kholne ke liye<br>apne sapne ka secret code likho.</p>
+  <input id="pass" type="password" placeholder="Enter secret code" autocomplete="off">
+  <p id="error" class="small" style="color:#ff9999"></p>
+  <button onclick="unlock()">UNLOCK MY SURPRISE</button>
+  <p class="small">Hint: Tumhara dream college ❤️</p>
+ </div>
+</section>
+
+<section class="page hidden" id="letter">
+ <div class="panel reveal">
+  <div class="kicker">A letter from the heart</div>
+  <h2>Dear Saqib, ❤️</h2>
+  <div class="rule"></div>
+  <div class="letter">
+   <p>Kabhi-kabhi zindagi mein kuch sapne sirf sapne nahi hote. Woh hamari pehchaan ban jaate hain. Aur mujhe pata hai ki tumhara sapna bhi tumhare liye kuch aisa hi hai.</p>
+
+   <p>Saqib, tum ek din doctor banna chahte ho. AIIMS tak pahunchna chahte ho. Ye raasta aasaan nahi hai, lekin mushkil hone ka matlab ye nahi ki tum ise poora nahi kar sakte.</p>
+
+   <p>Ho sakta hai kuch din padhai bahut achhi ho. Ho sakta hai kuch din questions solve na hon, marks kam aayein ya confidence hil jaaye. Lekin <span class="gold">ek test tumhari poori kahani decide nahi karta.</span> Galtiyan tumhe sikhane aati hain, tumhe rokne nahi.</p>
+
+   <p>Jab doosre log aage nikalte hue dikhein, apni journey ko unse compare mat karna. Tumhari race tumhari apni hai. Har din thoda seekhna, apni galtiyon ko samajhna aur zaroorat padne par help maangna bhi progress hai.</p>
+
+   <p>Yaad rakhna: bade results sirf bade promises se nahi, balki roz ke chhote aur imaandaar efforts se bante hain. Aaj ka ek chapter, aaj ke kuch questions aur aaj ki ek nayi learning — ye sab matter karte hain.</p>
+
+   <p>Aur Saqib, tumhari value sirf marks ya rank se nahi hai. Apni health ka khayal rakhna, sahi neend lena, breaks lena aur zaroorat par kisi se baat karna bhi utna hi important hai. Strong banna matlab khud par bekaar ka pressure daalna nahi; strong banna matlab dobara koshish karna seekhna hai.</p>
+
+   <p>Jis din thak jao, apne sapne ko yaad karna. Lekin sirf sapna nahi — woh wajah bhi yaad karna jiski wajah se tumne shuru kiya tha.</p>
+
+   <p class="gold">Mujhe umeed hai ki ek din tum apni mehnat par peeche mudkar muskuraoge aur kahoge: “Achha hua, maine koshish karna nahi chhoda.”</p>
+
+   <p>Abhi tum ek student ho, ek learner ho, aur tumhari kahani abhi likhi ja rahi hai. Aage kya hoga, koi guarantee nahi de sakta — lekin aaj tum apna agla step zaroor le sakte ho.</p>
+
+   <p>Keep learning. Keep going. Apne sapne ke liye mehnat karo, ek din mein ek step.</p>
+
+   <p class="gold">Dil se best wishes, Saqib. ❤️</p>
   </div>
-  <button class="btn" id="letterBtn">Read My Letter ❤️</button>
-  <button class="btn hidden" id="dreamBtn">Reveal Your Dream ✨</button>
+  <button onclick="showFuture()">THERE'S ONE MORE THING →</button>
  </div>
 </section>
 
-<section class="screen" id="s4">
- <div class="card">
-  <p class="eyebrow">IMAGINE THE POSSIBILITIES</p>
-  <div class="aiims">🩺</div>
-  <h1 class="gold">AIIMS DREAM</h1>
-  <p class="gold">ONE DREAM · ONE STEP AT A TIME</p>
-  <p>Your dream is worth working for, Saqib. Keep learning, stay consistent, ask for help when you need it, and remember to rest. Your worth is bigger than any one exam.</p>
-  <button class="btn" id="endingBtn">See Your Future ✨</button>
+<section class="page hidden" id="future">
+ <div class="panel reveal">
+  <div class="kicker">Imagine the possibilities</div>
+  <div class="big-number pulse">Dr.</div>
+  <h1>SAQIB</h1>
+  <div class="rule"></div>
+  <h2>Future Doctor 🩺</h2>
+  <p>AIIMS — a dream worth working for.</p>
+  <p class="small">Abhi ek sapna hai. Agla chapter tumhari mehnat likhegi.</p>
+  <p>One day at a time.<br><span class="gold">One step closer to your dream.</span></p>
+  <button onclick="showVideo()">YOUR FINAL SURPRISE 🎬</button>
  </div>
 </section>
 
-<section class="screen" id="s5">
- <div class="card">
-  <p class="eyebrow">THE STORY IS STILL BEING WRITTEN</p>
-  <div class="doctor">👨‍⚕️</div>
-  <h1 class="gold">Future Dr. Saqib</h1>
-  <p>Today a student. Tomorrow, step by step, a doctor in the making.</p>
-  <p>DREAM BIG ✦ STAY HUMBLE ✦ KEEP GOING</p>
-  <p>Dear friend, I hope you always believe in yourself. Tough days are part of learning. You don't have to be perfect — just keep trying and growing.</p>
-  <div class="signature">With best wishes, Your Friend ❤️</div>
-  <button class="btn" id="againBtn">↻ Watch Again</button>
-  <button class="btn secondary" id="shareBtn">Share This Surprise ↗</button>
-  <p class="message" id="shareMessage"></p>
+<section class="page hidden" id="videoPage">
+ <div class="panel reveal">
+  <div class="kicker">The last page • Just for you</div>
+  <h2>Before You Go… ❤️</h2>
+  <p>Ye video tumhare liye hai, Saqib.</p>
+  <video id="myVideo" controls playsinline preload="metadata">
+   <source src="saqib-video.mp4.mp4" type="video/mp4">
+   Your browser cannot play this video.
+  </video>
+  <p class="small">Agar video load na ho, GitHub mein filename check karna: <span class="gold">saqib-video.mp4.mp4</span></p>
+  <div class="rule"></div>
+  <p class="gold">Your story is still being written. Make the next chapter count.</p>
+  <button onclick="replay()">WATCH THE SURPRISE AGAIN ↺</button>
+  <footer>MADE WITH HEART • FOR SAQIB</footer>
  </div>
 </section>
-</main>
-
-<footer>Made with friendship, hope & a little golden magic ✨</footer>
 
 <script>
-(() => {
- const $=id=>document.getElementById(id);
- const screens=["s1","s2","s3","s4","s5"].map($);
- let typing=null, audio=null, music=false, musicTimer=null, note=0;
-
- function show(n){
-  screens.forEach((s,i)=>s.classList.toggle("active",i===n));
-  window.scrollTo({top:0,behavior:"smooth"});
-  if(n>=3) burst(20);
+const sections=["opening","lock","letter","future","videoPage"];
+function show(id){
+ sections.forEach(s=>document.getElementById(s).classList.add("hidden"));
+ document.getElementById(id).classList.remove("hidden");
+ window.scrollTo(0,0);
+}
+function showLock(){show("lock");}
+function unlock(){
+ const value=document.getElementById("pass").value.trim().toLowerCase();
+ if(value==="aiims"){
+  document.getElementById("error").textContent="";
+  show("letter");
+ }else{
+  document.getElementById("error").textContent="Code sahi nahi hai. Hint try karo ❤️";
  }
- function particle(){
-  const p=document.createElement("span");
-  p.className="particle";
-  p.textContent=["✦","♡","✧","✨"][Math.floor(Math.random()*4)];
-  p.style.left=Math.random()*100+"%";
-  p.style.fontSize=(12+Math.random()*15)+"px";
-  p.style.animationDuration=(6+Math.random()*5)+"s";
-  $("particles").appendChild(p);
-  setTimeout(()=>p.remove(),12000);
- }
- function burst(n){for(let i=0;i<n;i++)setTimeout(particle,i*50)}
- for(let i=0;i<12;i++)setTimeout(particle,i*250);
- setInterval(()=>{if($("particles").childElementCount<28)particle()},800);
-
- $("openBtn").addEventListener("click",()=>{
-  $("stage").classList.add("open");
-  $("openBtn").disabled=true;
-  setTimeout(()=>{show(1);$("openBtn").disabled=false},1300);
+}
+document.getElementById("pass").addEventListener("keydown",e=>{
+ if(e.key==="Enter")unlock();
+});
+function showFuture(){show("future");}
+function showVideo(){show("videoPage");}
+function replay(){
+ const v=document.getElementById("myVideo");
+ v.pause();v.currentTime=0;
+ show("opening");
+}
+const canvas=document.getElementById("stars");
+const ctx=canvas.getContext("2d");
+let stars=[];
+function resize(){
+ canvas.width=window.innerWidth*devicePixelRatio;
+ canvas.height=window.innerHeight*devicePixelRatio;
+ ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+ stars=Array.from({length:Math.min(100,Math.floor(innerWidth/5))},()=>({
+  x:Math.random()*innerWidth,y:Math.random()*innerHeight,
+  r:Math.random()*1.5+.3,a:Math.random()*.7+.2,
+  speed:Math.random()*.012+.003
+ }));
+}
+function draw(){
+ ctx.clearRect(0,0,innerWidth,innerHeight);
+ stars.forEach(s=>{
+  s.a+=s.speed;
+  const opacity=.25+Math.abs(Math.sin(s.a))*.65;
+  ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+  ctx.fillStyle="rgba(246,216,137,"+opacity+")";ctx.fill();
  });
-
- $("passForm").addEventListener("submit",e=>{
-  e.preventDefault();
-  if($("passcode").value.trim().toLowerCase()==="aiims"){
-   $("passMessage").textContent="Secret unlocked! ❤️";
-   setTimeout(()=>{show(2);$("passMessage").textContent=""},500);
-  }else{
-   $("passMessage").textContent="Try again! Hint: your dream medical institute ✨";
-   $("passcode").value="";
-  }
- });
-
- const letter=`Dear Saqib,
-
-I wanted to make something special for you.
-
-I know you have a big dream — to study medicine and work towards AIIMS. Every journey starts somewhere, and every small effort counts.
-
-There may be tough days. Taking a break is okay. Rest, reset, and return when you're ready.
-
-Keep learning. Stay curious. Believe in your ability to improve.
-
-Remember: your value is not decided by one exam or one result. Your kindness, character and courage matter, too.
-
-I am cheering for you, my friend.
-
-Keep going, Future Doctor! ❤️`;
-
- $("letterBtn").addEventListener("click",()=>{
-  clearInterval(typing);
-  $("letterText").textContent="";
-  $("letterBtn").classList.add("hidden");
-  $("dreamBtn").classList.add("hidden");
-  let i=0;
-  typing=setInterval(()=>{
-   $("letterText").textContent+=letter.charAt(i++);
-   if(i>=letter.length){
-    clearInterval(typing);
-    $("dreamBtn").classList.remove("hidden");
-   }
-  },28);
- });
-
- $("dreamBtn").addEventListener("click",()=>show(3));
- $("endingBtn").addEventListener("click",()=>show(4));
-
- $("againBtn").addEventListener("click",()=>{
-  clearInterval(typing);
-  $("passcode").value="";
-  $("letterText").textContent="";
-  $("letterBtn").classList.remove("hidden");
-  $("dreamBtn").classList.add("hidden");
-  $("stage").classList.remove("open");
-  $("shareMessage").textContent="";
-  show(0);
- });
-
- // Optional synthesized background music
- $("musicBtn").addEventListener("click",async()=>{
-  const btn=$("musicBtn");
-  if(music){
-   music=false;
-   clearInterval(musicTimer);
-   if(audio&&audio.state==="running")await audio.suspend();
-   btn.textContent="♫ Music: Off";
-   return;
-  }
-  try{
-   const AC=window.AudioContext||window.webkitAudioContext;
-   if(!AC){btn.textContent="Music unavailable";return}
-   if(!audio)audio=new AC();
-   await audio.resume();
-   music=true;
-   btn.textContent="♫ Music: On";
-   const melody=[261.63,329.63,392,329.63,293.66,349.23,392,349.23];
-   function play(){
-    if(!music)return;
-    const osc=audio.createOscillator(),gain=audio.createGain();
-    osc.type="sine";
-    osc.frequency.value=melody[note++%melody.length];
-    gain.gain.setValueAtTime(.0001,audio.currentTime);
-    gain.gain.exponentialRampToValueAtTime(.035,audio.currentTime+.12);
-    gain.gain.exponentialRampToValueAtTime(.0001,audio.currentTime+.8);
-    osc.connect(gain);gain.connect(audio.destination);
-    osc.start();osc.stop(audio.currentTime+.85);
-   }
-   play();musicTimer=setInterval(play,900);
-  }catch(e){music=false;btn.textContent="Tap to retry music"}
- });
-
- $("shareBtn").addEventListener("click",async()=>{
-  const msg=$("shareMessage");
-  if(!location.href.startsWith("http")){
-   msg.textContent="Publish on GitHub Pages first, then share the link.";
-   return;
-  }
-  try{
-   if(navigator.share){
-    await navigator.share({title:"Saqib | Future Doctor",text:"A special motivation surprise for Saqib!",url:location.href});
-    msg.textContent="Share menu opened ❤️";
-   }else if(navigator.clipboard&&window.isSecureContext){
-    await navigator.clipboard.writeText(location.href);
-    msg.textContent="Website link copied! ❤️";
-   }else{
-    msg.textContent="Copy the website link from your browser address bar.";
-   }
-  }catch(e){
-   if(e.name!=="AbortError")msg.textContent="Copy the link from your browser.";
-  }
- });
-})();
+ requestAnimationFrame(draw);
+}
+window.addEventListener("resize",resize);
+resize();draw();
 </script>
 </body>
 </html>
