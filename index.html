@@ -1,590 +1,342 @@
-DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Special Surprise for Saqib ❤️</title>
+<meta name="theme-color" content="#071510">
+<title>A Secret Surprise for 𝓔𝓳𝓪𝓳 ❤️</title>
 
 <style>
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+:root{--green:#b9f6ca;--gold:#ffd978}
+body{
+ margin:0;background:#071510;color:#fff;
+ font-family:Arial,sans-serif;min-height:100vh;
+ overflow-x:hidden;text-align:center
 }
-
-:root {
-  --green: #073b2b;
-  --deep: #031d17;
-  --gold: #e8c66a;
-  --cream: #fff8e7;
+button,input{font:inherit}
+button{cursor:pointer}
+.page{
+ min-height:100vh;display:flex;align-items:center;
+ justify-content:center;padding:25px 16px;
+ background:radial-gradient(ellipse at top,#174b35,#071510 70%)
 }
-
-html {
-  scroll-behavior: smooth;
+.card{
+ width:100%;max-width:460px;padding:30px 22px;
+ border:1px solid #b8e7bd55;border-radius:24px;
+ background:#0d2119ef;box-shadow:0 15px 60px #0008;
+ position:relative;overflow:hidden
 }
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: Georgia, "Times New Roman", serif;
-  color: var(--cream);
-  background:
-    radial-gradient(ellipse at top, #17664a 0%, transparent 55%),
-    linear-gradient(145deg, #031d17, #0a3929 55%, #061b15);
-  text-align: center;
-  overflow-x: hidden;
+.small{letter-spacing:3px;color:var(--gold);font-size:11px}
+h1{font-size:clamp(32px,9vw,46px);margin:18px 0}
+h1 span,.gold{color:var(--gold)}
+p{color:#d3e4d9;line-height:1.8;font-size:15px}
+.emoji{font-size:54px;display:block;margin:12px}
+input{
+ width:100%;padding:14px;border:1px solid #648b72;
+ background:#07150f;color:white;border-radius:10px;
+ text-align:center;letter-spacing:5px;margin:12px 0
 }
-
-.hidden {
-  display: none !important;
+.btn{
+ border:0;border-radius:30px;padding:13px 20px;
+ background:linear-gradient(135deg,#ffe9a1,#e5b94f);
+ color:#172017;font-weight:bold;margin:6px;
+ box-shadow:0 5px 20px #0003
 }
-
-#particles {
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
+.alt{background:#213a2c;color:white;border:1px solid #63866d}
+.error{color:#ffb5b5;font-size:13px;min-height:20px}
+.hidden{display:none!important}
+#curtains{
+ position:fixed;inset:0;z-index:10;display:flex;
+ pointer-events:none
 }
-
-.particle {
-  position: absolute;
-  bottom: -30px;
-  color: var(--gold);
-  opacity: 0.6;
-  animation: floatUp linear infinite;
+.curtain{
+ width:50%;height:100%;
+ background:repeating-linear-gradient(
+  90deg,#751e35 0,#a02d49 15%,#68152b 30%);
+ box-shadow:inset -12px 0 25px #26000a88;
+ transition:transform 1.7s cubic-bezier(.7,0,.2,1)
 }
-
-@keyframes floatUp {
-  from {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0;
-  }
-  15% { opacity: 0.65; }
-  to {
-    transform: translateY(-115vh) rotate(360deg);
-    opacity: 0;
-  }
+.curtain.right{transform:scaleX(-1)}
+#curtains.open .left{transform:translateX(-105%)}
+#curtains.open .right{transform:translateX(105%)}
+#curtains .ribbon{
+ position:fixed;top:45%;left:50%;
+ transform:translate(-50%,-50%);
+ color:var(--gold);font-size:clamp(17px,4.5vw,28px);
+ font-weight:bold;white-space:nowrap;text-shadow:0 3px 10px #000
 }
-
-.curtains {
-  position: fixed;
-  z-index: 20;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, #041c15, #0d4c34, #06251b);
-  transition: transform 1.6s ease-in-out;
-  pointer-events: none;
-  box-shadow: inset 0 0 40px #0008;
+#curtains.open .ribbon{opacity:0;transition:opacity .3s}
+.heart{
+ position:fixed;pointer-events:none;
+ animation:float 4s linear forwards;z-index:4
 }
-
-#leftCurtain {
-  left: 0;
-  border-right: 3px solid var(--gold);
+@keyframes float{
+ 0%{transform:translateY(0) scale(.7);opacity:0}
+ 15%{opacity:1}
+ 100%{transform:translateY(-100vh) rotate(35deg) scale(1.3);opacity:0}
 }
-
-#rightCurtain {
-  right: 0;
-  border-left: 3px solid var(--gold);
+.pulse{animation:pulse 2s infinite}
+@keyframes pulse{50%{transform:scale(1.05)}}
+.doctor{font-size:65px;display:inline-block;animation:bob 2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-9px)}}
+.bar{height:7px;background:#263e30;border-radius:20px;overflow:hidden;margin:20px 0}
+.bar div{height:100%;width:100%;background:linear-gradient(90deg,#65d99a,#ffe28a)}
+.shayari{
+ margin:24px 0;padding:20px 10px;
+ border-top:1px solid #ffd97888;
+ border-bottom:1px solid #ffd97888;
+ color:#ffe4a0;line-height:2;font-size:16px
 }
-
-.curtains.open-left {
-  transform: translateX(-105%);
+.video-wrap{
+ margin-top:25px;padding-top:20px;
+ border-top:1px solid #ffd97888
 }
-
-.curtains.open-right {
-  transform: translateX(105%);
+video{
+ display:block;width:100%;height:auto;max-height:480px;
+ border-radius:14px;background:#000;
+ border:1px solid #ffd97888;margin:12px 0
 }
-
-#intro {
-  position: fixed;
-  z-index: 25;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 24px;
-  background: #041e17;
-  transition: opacity 0.8s ease;
-}
-
-.intro-title {
-  color: var(--gold);
-  font-size: clamp(30px, 7vw, 52px);
-  line-height: 1.2;
-  text-shadow: 0 0 24px #dcbf6655;
-}
-
-.intro-subtitle {
-  max-width: 440px;
-  color: #fff3cf;
-  line-height: 1.8;
-  margin: 18px 0 25px;
-}
-
-.container {
-  position: relative;
-  z-index: 1;
-  width: min(92%, 760px);
-  margin: 0 auto;
-  padding: 35px 0 60px;
-}
-
-.card {
-  background: linear-gradient(145deg, #0b4733ee, #05281fee);
-  border: 1px solid #d8b653aa;
-  border-radius: 24px;
-  padding: clamp(22px, 5vw, 42px);
-  box-shadow: 0 15px 60px #0006, inset 0 0 25px #e8c66a08;
-  margin: 20px 0;
-}
-
-.gold {
-  color: var(--gold);
-}
-
-h1, h2 {
-  color: var(--gold);
-  line-height: 1.25;
-}
-
-h1 {
-  font-size: clamp(30px, 7vw, 48px);
-}
-
-h2 {
-  font-size: clamp(25px, 6vw, 36px);
-}
-
-p {
-  line-height: 1.85;
-}
-
-.heart {
-  color: #ffb3b3;
-  font-size: 28px;
-  animation: heartbeat 1.6s infinite;
-}
-
-@keyframes heartbeat {
-  50% { transform: scale(1.15); }
-}
-
-button {
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: bold;
-  border: 1px solid #ffe6a0;
-  border-radius: 30px;
-  background: linear-gradient(135deg, #f2d47b, #c89d3e);
-  color: #183421;
-  padding: 13px 23px;
-  margin: 8px 5px;
-  cursor: pointer;
-  box-shadow: 0 5px 18px #0003;
-  transition: transform 0.2s, filter 0.2s;
-}
-
-button:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.08);
-}
-
-button:active {
-  transform: scale(0.97);
-}
-
-input {
-  width: min(100%, 330px);
-  padding: 14px;
-  border-radius: 12px;
-  border: 1px solid var(--gold);
-  background: #031e17;
-  color: white;
-  font-size: 16px;
-  text-align: center;
-  outline: none;
-  margin: 12px 0;
-}
-
-#passwordMessage {
-  color: #ffd5a5;
-  min-height: 25px;
-}
-
-.letter {
-  text-align: left;
-  white-space: pre-wrap;
-  font-size: 17px;
-  line-height: 1.95;
-  color: #fff9e9;
-  overflow-wrap: anywhere;
-}
-
-.shayari {
-  margin-top: 28px;
-  padding: 22px 15px;
-  border-top: 1px solid #d9b85899;
-  border-bottom: 1px solid #d9b85899;
-  color: #ffe5a1;
-  font-size: 19px;
-  line-height: 2;
-  white-space: pre-line;
-}
-
-.reveal-box {
-  padding: 25px 10px;
-  border: 1px solid #d9b85899;
-  border-radius: 18px;
-  background: #031d1755;
-}
-
-.doctor-title {
-  font-size: clamp(35px, 8vw, 60px);
-  color: var(--gold);
-  text-shadow: 0 0 22px #e8c66a55;
-  margin: 15px 0;
-}
-
-.video-box {
-  margin-top: 30px;
-  padding-top: 22px;
-  border-top: 1px solid #d9b85899;
-}
-
-video {
-  width: 100%;
-  max-height: 520px;
-  display: block;
-  margin: 18px auto;
-  border: 1px solid #d9b85899;
-  border-radius: 16px;
-  background: #000;
-}
-
-.small {
-  font-size: 14px;
-  color: #d6e5d8;
-}
-
-footer {
-  color: #e8c66a;
-  padding: 25px 10px;
-  font-size: 14px;
-}
-
-@media (max-width: 480px) {
-  .container { width: 94%; }
-  .card { padding: 22px 17px; }
-  .letter { font-size: 16px; }
-  button { padding: 12px 17px; }
-}
+footer{font-size:11px;color:#88a897;margin-top:25px}
 </style>
 </head>
-
 <body>
 
-<div id="particles"></div>
+<div id="curtains">
+ <div class="curtain left"></div>
+ <div class="curtain right"></div>
+ <div class="ribbon">A LITTLE SURPRISE FOR 𝓔𝓳𝓪𝓳 ❤️</div>
+</div>
 
-<div id="leftCurtain" class="curtains"></div>
-<div id="rightCurtain" class="curtains"></div>
+<main class="page">
 
-<section id="intro">
-  <div class="heart">♥</div>
-  <h1 class="intro-title">Something Special<br>For Saqib</h1>
-  <p class="intro-subtitle">
-    Mere dost, tumhare liye ek chhota sa surprise.<br>
-    Isse aaram se kholna. ❤️
-  </p>
-  <button id="openBtn">Open Your Surprise ✨</button>
+<section class="card" id="welcome">
+ <div class="small">✦ SOMETHING SPECIAL ✦</div>
+ <span class="emoji pulse">🎁</span>
+ <h1>Hey, <span>𝓔𝓳𝓪𝓳!</span></h1>
+ <p>Someone made a little surprise just for you.<br>Are you ready to discover it?</p>
+ <button class="btn" onclick="openCurtains()">OPEN YOUR SURPRISE ✨</button>
+ <footer>Made with ❤️ by your friend</footer>
 </section>
 
-<main class="container">
+<section class="card hidden" id="lock">
+ <div class="small">🔐 TOP SECRET</div>
+ <span class="emoji">🗝️</span>
+ <h1>Secret <span>Access</span></h1>
+ <p>A little secret is waiting for you.<br>Enter the passcode to unlock your surprise.</p>
+ <input id="pass" type="password" placeholder="ENTER PASSCODE" maxlength="20" autocomplete="off">
+ <button class="btn" onclick="unlock()">UNLOCK ❤️</button>
+ <div class="error" id="error"></div>
+ <p style="font-size:12px">Hint: the dream is written below 😉</p>
+ <footer>EJAJ'S SECRET SURPRISE</footer>
+</section>
 
-  <section id="s1" class="card hidden">
-    <div class="heart">♥</div>
-    <h1>Hey Saqib!</h1>
-    <p>
-      Aaj ka ye chhota sa moment sirf tumhare liye hai.
-      Aage badhne se pehle ek chhota sa secret hai.
-    </p>
-    <p class="gold">Ready for your surprise?</p>
-    <button id="continueBtn">Yes, Let's Go ✨</button>
-  </section>
+<section class="card hidden" id="surprise">
+ <div class="small">✦ A MESSAGE FROM YOUR FRIEND ✦</div>
+ <span class="emoji">💌</span>
+ <h1>Dear <span>𝓔𝓳𝓪𝓳!</span></h1>
 
-  <section id="s2" class="card hidden">
-    <h2>A Little Secret 🔐</h2>
-    <p>Surprise unlock karne ke liye password likho.</p>
-    <input id="passwordInput" type="password"
-      placeholder="Enter password" autocomplete="off">
-    <br>
-    <button id="unlockBtn">Unlock ❤️</button>
-    <p id="passwordMessage"></p>
-    <p class="small">Hint: AIIMS ka naam 😉</p>
-  </section>
+ <p>Mere dost, ye chhota sa surprise sirf tumhare liye hai. ❤️</p>
 
-  <section id="s3" class="card hidden">
-    <div class="heart">♥</div>
-    <h2>A Letter For You</h2>
-    <p class="gold">Dil se, mere dost ke liye...</p>
+ <p>Shayad main har baar tumhe bata nahi pata, lekin main dil se chahta hoon ki tum apne sapne poore karo. Tumhara AIIMS tak pahunchne aur doctor banne ka sapna ek din tumhari khoobsurat kahani ka hissa bane.</p>
 
-    <div id="letterText" class="letter"></div>
+ <p>Mujhe pata hai ki is safar mein sirf achhe din nahi honge. Kabhi questions mushkil lagenge, kabhi results umeed jaise nahi aayenge aur kabhi khud par doubt bhi hoga. Lekin yaad rakhna, ek mushkil din tumhari poori kahani nahi hota.</p>
 
-    <button id="letterBtn">Read My Letter 💌</button>
+ <p>Har galti tumhe kuch sikhane ka mauka hai. Har chhoti progress tumhe aage le jaati hai. Apni mehnat par bharosa rakhna, zaroorat pade toh madad maangna aur apni sehat aur aaram ka bhi khayal rakhna.</p>
 
-    <div id="shayari" class="shayari hidden">
-Tera sapna ek din teri pehchaan bane,
-Teri mehnat teri jeet ka paigaam bane.
-Mere dost, tu bas hausla banaaye rakhna,
-Ek din tere naam ke aage “Doctor” likha nazar aaye. 🩺❤️
-    </div>
+ <p>Tumhe har waqt perfect hone ki zaroorat nahi hai. Bas seekhte rehna, apni galtiyon se aage badhna aur khud ko kal se behtar banane ki koshish karna.</p>
 
-    <button id="dreamBtn" class="hidden">
-      One More Surprise ✨
-    </button>
-  </section>
+ <p>Ek din jab tum apne safar ko peeche mudkar dekhoge, toh umeed hai tumhe apni mehnat par fakhr hoga. Aur jis din tumhare naam ke aage “Dr.” likha hoga, us din tumhari khushi dekhna sach mein khaas hoga.</p>
 
-  <section id="s4" class="card hidden">
-    <div class="heart">♥</div>
-    <h2>Your Dream Is Worth Chasing</h2>
-    <p>
-      Har bada safar ek chhote step se shuru hota hai.
-      Apni progress ko samjho, galtiyon se seekho,
-      aur apni sehat ka bhi khayal rakho.
-    </p>
+ <p>Yaad rakhna, tumhari pehchaan sirf rank ya result nahi hai. Tumhara achha dil, tumhara kirdaar aur doosron ke liye tumhari izzat bhi utni hi maayne rakhti hai.</p>
 
-    <div class="reveal-box">
-      <p class="gold">A little wish for your future...</p>
-      <div class="doctor-title">Future Dr. Saqib 🩺</div>
-      <p>
-        Umeed hai ek din tum apne sapne par fakhr karoge.
-        Main tumhare liye dil se best wishes bhej raha hoon. ❤️
-      </p>
-    </div>
+ <p>Mere dost, bade sapne dekho, lekin apne aap par zaroorat se zyada bojh mat daalna. Ek din mein ek step, ek din mein ek nayi learning. Bas aise hi aage badhte rehna.</p>
 
-    <button id="finalBtn">The Last Surprise 🎁</button>
-  </section>
+ <p>Main dil se dua karta hoon ki tumhe apni mehnat ka achha phal mile, tumhare gharwale tum par fakhr karein aur tum ek aise doctor bano jo apne ilm ke saath apni insaaniyat ke liye bhi jaana jaaye.</p>
 
-  <section id="s5" class="card hidden">
-    <div class="heart">♥</div>
-    <h2 class="gold">For My Dear Friend</h2>
-    <p>
-      Saqib, yaad rakhna: tumhe har din perfect hone ki
-      zaroorat nahi. Bas seekhte rehna, apni koshish jaari
-      rakhna aur zaroorat par aaram bhi karna.
-    </p>
+ <p class="gold"><strong>Keep going, 𝓔𝓳𝓪𝓳. Your journey is still being written. ❤️</strong></p>
 
-    <div class="reveal-box">
-      <div class="doctor-title">Future Dr. Saqib</div>
-      <p>
-        May your hard work lead you towards your dreams.
-        Wishing you happiness, courage and success. ❤️
-      </p>
-    </div>
+ <div class="shayari">
+  Tera sapna ek din teri pehchaan bane,<br>
+  Teri mehnat teri jeet ka paigaam bane.<br>
+  Mere dost, tu bas hausla banaaye rakhna,<br>
+  Ek din tere naam ke aage “Doctor” likha nazar aaye. 🩺❤️
+ </div>
 
-    <div class="video-box">
-      <h2>One Last Thing For You 🎬</h2>
-      <p>Ye video bhi tumhare liye hai, mere dost. ❤️</p>
+ <button class="btn" onclick="showDream()">ONE MORE SURPRISE 🎁</button>
+</section>
 
-      <video controls playsinline preload="metadata">
-        <source src="saqib-video.mp4.mp4" type="video/mp4">
-        Your browser does not support this video.
-      </video>
+<section class="card hidden" id="dream">
+ <div class="small">✦ FUTURE DOCTOR IN PROGRESS ✦</div>
+ <div class="doctor">🩺</div>
+ <h1>Your dream.<br><span>Your journey.</span></h1>
+ <p>One day, your hard work may bring you closer to the white coat you've been dreaming of.</p>
+ <p><strong class="gold">NEET → MBBS → YOUR DREAM</strong></p>
+ <div class="bar"><div></div></div>
+ <p>Don't rush the journey. Focus on today's effort, learn from mistakes and keep moving forward.</p>
+ <p>I'm cheering for you, dost! ❤️</p>
+ <button class="btn" onclick="showQuestion()">I HAVE A MESSAGE 💚</button>
+</section>
 
-      <p class="small">
-        Agar video na chale, toh GitHub mein video ka filename check karna.
-      </p>
-    </div>
+<section class="card hidden" id="question">
+ <div class="small">✦ ONE LAST THING ✦</div>
+ <span class="emoji">🥹💚</span>
+ <h1>𝓔𝓳𝓪𝓳, will you <span>keep going?</span></h1>
+ <p>Will you keep believing in your dream and give your best, one day at a time?</p>
+ <button class="btn" onclick="answerYes()">YES, I'LL TRY! 💪</button>
+ <button class="btn alt" onclick="answerNo()">I'M HAVING A HARD DAY 😔</button>
+ <p style="font-size:12px">Both answers are okay. You don't have to be perfect.</p>
+</section>
 
-    <p class="shayari">
-Sapne bade rakhna, par khud par pyaar bhi rakhna,
-Har mushkil mein thoda sabr aur hausla rakhna.
-Manzil mile ya safar kuch lamba ho jaaye,
-Mere dost, apni umeed hamesha zinda rakhna. ❤️
-    </p>
+<section class="card hidden" id="ending">
+ <div class="small">✦ ALWAYS REMEMBER ✦</div>
+ <span class="emoji">🌟</span>
+ <h1 id="endTitle">You've got this, <span>𝓔𝓳𝓪𝓳!</span></h1>
+ <p id="endText">Keep learning, keep growing and take one step at a time.</p>
+ <p class="gold">YOUR DREAM IS WORTH THE EFFORT. 🩺</p>
 
-    <button id="replayBtn">Replay Surprise ↻</button>
-    <button id="shareBtn">Share This Surprise 💌</button>
-    <p id="shareMessage" class="small"></p>
-  </section>
+ <div class="shayari">
+  Sapne bade rakhna, par khud par pyaar bhi rakhna,<br>
+  Har mushkil mein thoda sabr aur hausla rakhna.<br>
+  Manzil mile ya safar kuch lamba ho jaaye,<br>
+  Mere dost, apni umeed hamesha zinda rakhna. ❤️
+ </div>
 
-  <footer>
-    Made with friendship, good wishes and lots of ❤️
-  </footer>
+ <button class="btn" onclick="shareMessage()">SHARE THIS SURPRISE ↗</button>
+ <button class="btn alt" onclick="restart()">WATCH AGAIN ↻</button>
+
+ <div class="video-wrap">
+  <div class="small">✦ A SPECIAL VIDEO FOR YOU ✦</div>
+  <h1 style="font-size:30px">One Last Surprise 🎬</h1>
+  <p>𝓔𝓳𝓪𝓳, ye video sirf tumhare liye hai. ❤️</p>
+
+  <video id="friendVideo" controls playsinline preload="metadata">
+   <source src="ejaj-video.mp4" type="video/mp4">
+   Your browser does not support video playback.
+  </video>
+
+  <p style="font-size:12px">
+   Agar video nahi chale, toh GitHub mein video filename check karna.
+  </p>
+ </div>
+
+ <footer>Made with friendship and best wishes ❤️</footer>
+</section>
 
 </main>
 
 <script>
-const $ = id => document.getElementById(id);
-
-function showSection(id) {
-  ["s1", "s2", "s3", "s4", "s5"].forEach(section => {
-    $(section).classList.add("hidden");
-  });
-  $(id).classList.remove("hidden");
-  window.scrollTo({ top: 0, behavior: "smooth" });
+function openCurtains(){
+ const c=document.getElementById('curtains');
+ c.classList.add('open');
+ setTimeout(()=>{
+  c.style.display='none';
+  show('lock');
+  hearts();
+ },1700);
 }
 
-function makeParticles() {
-  const symbols = ["✦", "✧", "·", "♥"];
-  for (let i = 0; i < 28; i++) {
-    const particle = document.createElement("span");
-    particle.className = "particle";
-    particle.textContent = symbols[i % symbols.length];
-    particle.style.left = Math.random() * 100 + "%";
-    particle.style.animationDuration = (7 + Math.random() * 10) + "s";
-    particle.style.animationDelay = (Math.random() * 8) + "s";
-    particle.style.fontSize = (10 + Math.random() * 16) + "px";
-    $("particles").appendChild(particle);
-  }
+function show(id){
+ ['welcome','lock','surprise','dream','question','ending'].forEach(x=>{
+  document.getElementById(x).classList.add('hidden');
+ });
+ document.getElementById(id).classList.remove('hidden');
+ window.scrollTo({top:0,behavior:'smooth'});
 }
 
-makeParticles();
-
-$("openBtn").addEventListener("click", () => {
-  $("leftCurtain").classList.add("open-left");
-  $("rightCurtain").classList.add("open-right");
-  $("intro").style.opacity = "0";
-
-  setTimeout(() => {
-    $("intro").classList.add("hidden");
-    showSection("s1");
-  }, 850);
-});
-
-$("continueBtn").addEventListener("click", () => {
-  showSection("s2");
-  $("passwordInput").focus();
-});
-
-function unlockSurprise() {
-  const password = $("passwordInput").value.trim().toLowerCase();
-
-  if (password === "aiims") {
-    $("passwordMessage").textContent = "Surprise unlocked! ❤️";
-    showSection("s3");
-  } else {
-    $("passwordMessage").textContent =
-      "Password sahi nahi hai. Hint try karo: AIIMS 😉";
-  }
+function unlock(){
+ const value=document.getElementById('pass').value.trim().toLowerCase();
+ if(value==='aiims'){
+  document.getElementById('error').textContent='';
+  show('surprise');
+  hearts();
+ }else{
+  document.getElementById('error').textContent=
+   'Not quite! Hint: the dream is AIIMS 💚';
+ }
 }
 
-$("unlockBtn").addEventListener("click", unlockSurprise);
-
-$("passwordInput").addEventListener("keydown", event => {
-  if (event.key === "Enter") unlockSurprise();
+document.getElementById('pass').addEventListener('keydown',e=>{
+ if(e.key==='Enter')unlock();
 });
 
-const letter = `Dear Saqib, ❤️
+function showDream(){
+ show('dream');
+ hearts();
+}
 
-Mere dost, ye chhota sa surprise sirf tumhare liye hai.
+function showQuestion(){
+ show('question');
+}
 
-Shayad main har baar tumhe bata nahi pata, lekin main dil se chahta hoon ki tum apne sapne poore karo. Tumhara AIIMS tak pahunchne aur doctor banne ka sapna ek din tumhari khoobsurat kahani ka hissa bane.
+function answerYes(){
+ document.getElementById('endTitle').innerHTML=
+  'That’s the spirit, <span>𝓔𝓳𝓪𝓳!</span>';
+ document.getElementById('endText').textContent=
+  'No need to have every answer today. Keep showing up, keep learning and give yourself credit for every step.';
+ show('ending');
+ hearts();
+}
 
-Mujhe pata hai ki is safar mein sirf achhe din nahi honge. Kabhi questions mushkil lagenge, kabhi results umeed jaise nahi aayenge, aur kabhi khud par doubt bhi hoga. Lekin yaad rakhna, mere dost — ek mushkil din tumhari poori kahani nahi hota.
+function answerNo(){
+ document.getElementById('endTitle').innerHTML=
+  'It’s okay, <span>𝓔𝓳𝓪𝓳. 💚</span>';
+ document.getElementById('endText').textContent=
+  'Everyone has hard days. Rest if you need to, talk to someone you trust and start again when you feel ready. Your worth is more than an exam.';
+ show('ending');
+ hearts();
+}
 
-Har galti tumhe kuch sikhane ka mauka hai. Har chhoti progress tumhe aage le jaati hai. Apni mehnat par bharosa rakhna, zaroorat pade toh madad maangna, aur apni sehat aur aaram ka bhi khayal rakhna.
+async function shareMessage(){
+ const message=
+  'A little surprise for 𝓔𝓳𝓪𝓳 ❤️ Keep believing in your dream of becoming a doctor. One step at a time! 🩺';
+ const data={
+  title:'For 𝓔𝓳𝓪𝓳 ❤️',
+  text:message,
+  url:window.location.href
+ };
 
-Tumhe har waqt perfect hone ki zaroorat nahi hai. Bas seekhte rehna, apni galtiyon se aage badhna aur khud ko kal se behtar banane ki koshish karna.
-
-Ek din jab tum apne safar ko peeche mudkar dekhoge, toh umeed hai tumhe apni mehnat par fakhr hoga. Aur jis din tumhare naam ke aage “Dr.” likha hoga, us din tumhari khushi dekhna sach mein khaas hoga.
-
-Lekin Saqib, yaad rakhna — tumhari pehchaan sirf rank ya result nahi hai. Tumhara achha dil, tumhara kirdaar aur doosron ke liye tumhari izzat bhi utni hi maayne rakhti hai.
-
-Mere dost, bade sapne dekho, lekin apne aap par zaroorat se zyada bojh mat daalna. Ek din mein ek step. Ek din mein ek nayi learning. Bas aise hi aage badhte rehna.
-
-Main dil se dua karta hoon ki tumhe apni mehnat ka achha phal mile, tumhare gharwale tum par fakhr karein, aur tum ek aise doctor bano jo apne ilm ke saath apni insaaniyat ke liye bhi jaana jaaye.
-
-Ye surprise tumhe yaad dilane ke liye hai ki tumhara sapna important hai, aur tumhari koshish bhi.
-
-Keep going, Saqib.
-Your journey is still being written.
-
-With lots of best wishes,
-Your Friend ❤️`;
-
-let typingTimer = null;
-
-$("letterBtn").addEventListener("click", () => {
-  if (typingTimer) clearInterval(typingTimer);
-
-  $("letterBtn").disabled = true;
-  $("letterText").textContent = "";
-  $("shayari").classList.add("hidden");
-  $("dreamBtn").classList.add("hidden");
-
-  let i = 0;
-
-  typingTimer = setInterval(() => {
-    $("letterText").textContent += letter.charAt(i);
-    i++;
-
-    if (i >= letter.length) {
-      clearInterval(typingTimer);
-      typingTimer = null;
-      $("letterBtn").disabled = false;
-      $("shayari").classList.remove("hidden");
-      $("dreamBtn").classList.remove("hidden");
-    }
-  }, 18);
-});
-
-$("dreamBtn").addEventListener("click", () => {
-  showSection("s4");
-});
-
-$("finalBtn").addEventListener("click", () => {
-  showSection("s5");
-});
-
-$("replayBtn").addEventListener("click", () => {
-  if (typingTimer) clearInterval(typingTimer);
-  typingTimer = null;
-
-  $("letterText").textContent = "";
-  $("letterBtn").disabled = false;
-  $("shayari").classList.add("hidden");
-  $("dreamBtn").classList.add("hidden");
-  $("passwordInput").value = "";
-  $("passwordMessage").textContent = "";
-  $("shareMessage").textContent = "";
-
-  const video = document.querySelector("video");
-  if (video) video.pause();
-
-  $("intro").classList.remove("hidden");
-  $("intro").style.opacity = "1";
-  $("leftCurtain").classList.remove("open-left");
-  $("rightCurtain").classList.remove("open-right");
-
-  ["s1", "s2", "s3", "s4", "s5"].forEach(section => {
-    $(section).classList.add("hidden");
-  });
-
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-$("shareBtn").addEventListener("click", async () => {
-  const shareData = {
-    title: "A Special Surprise for Saqib",
-    text: "A little surprise made with friendship and good wishes ❤️",
-    url: window.location.href
-  };
-
-  try {
-    if (navigator.share) {
-      await navigator.share(shareData);
-    } else if (navigator.clipboard) {
-      await navigator.clipboard.writeText(window.location.href);
-      $("shareMessage").textContent = "Website link copied! Send it to Saqib ❤️";
-    } else {
-      $("shareMessage").textContent =
-        "Copy this website link from your browser and send it to Saqib ❤️";
-    }
-  } catch (error) {
-    $("shareMessage").textContent = "You can copy the website link and share it with Saqib ❤️";
+ if(navigator.share){
+  try{
+   await navigator.share(data);
+  }catch(e){}
+ }else{
+  try{
+   await navigator.clipboard.writeText(window.location.href);
+   alert('Website link copied! Share it with your friend ❤️');
+  }catch(e){
+   alert(window.location.href);
   }
-});
+ }
+}
+
+function restart(){
+ const video=document.getElementById('friendVideo');
+ if(video)video.pause();
+
+ document.getElementById('curtains').style.display='flex';
+ document.getElementById('curtains').classList.remove('open');
+ document.getElementById('pass').value='';
+ document.getElementById('error').textContent='';
+ show('welcome');
+}
+
+function hearts(){
+ const symbols=['💚','✨','💛','🌟','❤️'];
+ for(let i=0;i<12;i++){
+  setTimeout(()=>{
+   const h=document.createElement('span');
+   h.className='heart';
+   h.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+   h.style.left=Math.random()*95+'vw';
+   h.style.top=(65+Math.random()*30)+'vh';
+   h.style.fontSize=(15+Math.random()*18)+'px';
+   document.body.appendChild(h);
+   setTimeout(()=>h.remove(),4100);
+  },i*130);
+ }
+}
 </script>
 
 </body>
